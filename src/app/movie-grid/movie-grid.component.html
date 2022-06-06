@@ -1,1 +1,11 @@
-<p>movie-grid works!</p>
+<div class="main">
+  <ul class="container">
+    <li class="list list--inline" *ngFor="let movie of data.movies">
+      <card
+        [image-src]="movie.posterUrl"
+        [movie-title]="movie.title"
+        [movie-year]="movie.year"
+      ></card>
+    </li>
+  </ul>
+</div>

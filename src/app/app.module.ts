@@ -2,14 +2,15 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { DataServiceService } from './services/data-service.service';
+import { DataService } from './services/data.service';
 import { MovieGridComponent } from './movie-grid/movie-grid.component';
 import { CardComponent } from './shared/card/card.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, MovieGridComponent, CardComponent],
-  imports: [BrowserModule],
-  providers: [DataServiceService],
+  imports: [BrowserModule, HttpClientModule],
+  providers: [DataService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

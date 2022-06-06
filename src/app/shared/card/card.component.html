@@ -1,5 +1,9 @@
 <div class="card">
-  <img [src]="imageSrc" alt="" />
+  <img
+    [src]="imageSrc"
+    alt=""
+    onerror="this.onerror=null; this.src='assets/poster-not-found.png'"
+  />
   <p class="movie--title">{{ movieTitle }}</p>
   <p class="movie--year">{{ movieYear }}</p>
 </div>
