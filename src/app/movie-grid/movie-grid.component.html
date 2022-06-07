@@ -1,5 +1,13 @@
 <div class="row">
-  <input class="search" type="text" id="title" name="title" />
+  <input
+    class="search"
+    type="text"
+    id="title"
+    name="title"
+    placeholder="Search Movies..."
+    [(ngModel)]="search"
+    (change)="onSearchChange()"
+  />
   <select
     class="dropdown"
     name="genre"

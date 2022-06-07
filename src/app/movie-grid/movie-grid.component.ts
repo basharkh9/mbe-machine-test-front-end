@@ -12,6 +12,7 @@ export class MovieGridComponent implements OnInit, OnDestroy {
   data: any = {};
   filteredMovies: any = [];
   selectedGenre: string = '';
+  search: string = '';
   subscription: Subscription = new Subscription();
 
   ngOnInit(): void {
@@ -32,8 +33,20 @@ export class MovieGridComponent implements OnInit, OnDestroy {
       this.filteredMovies = this.data.movies;
       return;
     }
+
     this.filteredMovies = this.data.movies.filter((m: any) =>
       m.genres.some((g: string) => g == this.selectedGenre)
+    );
+  }
+
+  onSearchChange() {
+    if (this.search == '') {
+      this.filteredMovies = this.data.movies;
+      this.onGenreChange();
+      return;
+    }
+    this.filteredMovies = this.filteredMovies.filter((m: any) =>
+      m.title.toLowerCase().includes(this.search)
     );
   }
   ngOnDestroy(): void {
