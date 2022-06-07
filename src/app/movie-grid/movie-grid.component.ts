@@ -1,7 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { IGenre } from '../models/genre.model';
-import { IMovie } from '../models/movie.model';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -11,16 +9,16 @@ import { DataService } from '../services/data.service';
 })
 export class MovieGridComponent implements OnInit, OnDestroy {
   constructor(private dataService: DataService) {}
-  data: { genres: IGenre[]; movies: IMovie[] } = {
-    genres: [],
-    movies: [],
-  };
+  data: any = {};
+  filteredMovies: any = [];
+  selectedGenre: string = '';
   subscription: Subscription = new Subscription();
 
   ngOnInit(): void {
     this.subscription = this.dataService.getData().subscribe({
-      next: (d) => {
-        this.data = d as any;
+      next: (d: any) => {
+        this.data = d;
+        this.filteredMovies = d.movies;
       },
       complete: () => console.log(this.data),
       error: (e) => {
@@ -29,6 +27,15 @@ export class MovieGridComponent implements OnInit, OnDestroy {
     });
   }
 
+  onGenreChange() {
+    if (this.selectedGenre == '') {
+      this.filteredMovies = this.data.movies;
+      return;
+    }
+    this.filteredMovies = this.data.movies.filter((m: any) =>
+      m.genres.some((g: string) => g == this.selectedGenre)
+    );
+  }
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }

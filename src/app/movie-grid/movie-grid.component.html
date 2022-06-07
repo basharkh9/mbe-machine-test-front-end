@@ -1,6 +1,21 @@
+<div class="row">
+  <input class="search" type="text" id="title" name="title" />
+  <select
+    class="dropdown"
+    name="genre"
+    id="genre"
+    (change)="onGenreChange()"
+    [(ngModel)]="selectedGenre"
+  >
+    <option value="">Select Genre</option>
+    <option *ngFor="let g of data.genres" value="{{ g }}">
+      {{ g }}
+    </option>
+  </select>
+</div>
 <div class="main">
   <ul class="container">
-    <li class="list list--inline" *ngFor="let movie of data.movies">
+    <li class="list list--inline" *ngFor="let movie of filteredMovies">
       <card
         [image-src]="movie.posterUrl"
         [movie-title]="movie.title"

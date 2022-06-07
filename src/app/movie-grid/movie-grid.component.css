@@ -1,24 +1,35 @@
-.main{
-    height: 40rem;
-    overflow-y: scroll;
-    padding: 2rem 2rem;
-    margin: 0.5rem 0.5rem;
+.main {
+  height: 40rem;
+  overflow-y: scroll;
+  padding: 1rem 1rem;
+  margin: 1rem 0.5rem;
 }
 .list {
-    list-style: none;
-    padding-left: 0;
+  list-style: none;
+  padding-left: 0;
 }
-  
+
 .list--inline .list__item {
-    display: inline-block;
-    margin-right: 2rem;
+  display: inline-block;
 }
 .container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    row-gap: 0.5rem;
-  }
-  
-  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  row-gap: 0.5rem;
+}
+
+.row {
+  margin-top: 2rem;
+  justify-content: space-between;
+  padding: 0rem 15rem;
+}
+.dropdown {
+  width: 20rem;
+}
+.search {
+  width: 20rem;
+}
