@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="grid grid--1x2 grid__padding">
+    <div class="poster">
+      <img
+        [src]="imageSrc"
+        alt=""
+        onerror="this.onerror=null; this.src='assets/poster-not-found.png'"
+      />
+    </div>
+    <div class="details">
+      <h2 class="movie--title">{{ movieTitle }}</h2>
+      <p>{{ movieYear }}</p>
+      <p>{{ movieActors }}</p>
+      <p>Plot</p>
+      <p class="plot">
+        {{ moviePlot }}
+      </p>
+    </div>
+  </div>
+</div>

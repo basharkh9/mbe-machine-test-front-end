@@ -1,0 +1,23 @@
+/* Grids */
+img {
+  width: 40ch;
+}
+.grid {
+  display: grid;
+  align-items: flex-start;
+}
+.grid__padding {
+  padding: 5rem 0;
+}
+.plot {
+  margin-top: 10rem;
+}
+.movie--title {
+  margin-top: 4rem;
+}
+
+@media screen and (min-width: 768px) {
+  .grid--1x2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

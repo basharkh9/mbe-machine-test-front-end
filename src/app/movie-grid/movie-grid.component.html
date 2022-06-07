@@ -25,6 +25,7 @@
   <ul class="container">
     <li class="list list--inline" *ngFor="let movie of filteredMovies">
       <card
+        (click)="navigateToMovieDetail(movie.id)"
         [image-src]="movie.posterUrl"
         [movie-title]="movie.title"
         [movie-year]="movie.year"

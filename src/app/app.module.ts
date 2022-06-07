@@ -8,11 +8,20 @@ import { DataService } from './services/data.service';
 import { MovieGridComponent } from './movie-grid/movie-grid.component';
 import { CardComponent } from './shared/card/card.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 
-const appRoute: Routes = [{ path: '', component: MovieGridComponent }];
+const appRoute: Routes = [
+  { path: '', component: MovieGridComponent },
+  { path: 'detail/:id', component: MovieDetailComponent },
+];
 
 @NgModule({
-  declarations: [AppComponent, MovieGridComponent, CardComponent],
+  declarations: [
+    AppComponent,
+    MovieGridComponent,
+    CardComponent,
+    MovieDetailComponent,
+  ],
   imports: [
     BrowserModule,
     FormsModule,
