@@ -60,7 +60,7 @@ export class MovieGridComponent implements OnInit, OnDestroy {
     //Here is the bug I forgot to remove this line
     // this.populateMovie();
     this.filteredMovies = this.filteredMovies.filter((m: any) =>
-      m.title.toLowerCase().includes(this.search)
+      m.title.toLowerCase().includes(this.search.toLocaleLowerCase())
     );
   }
 
