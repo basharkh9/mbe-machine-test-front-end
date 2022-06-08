@@ -40,9 +40,10 @@ export class MovieGridComponent implements OnInit, OnDestroy {
   }
 
   private populateMovie() {
-    this.filteredMovies = this.data.movies.filter((m: any) =>
-      m.genres.some((g: string) => g == this.selectedGenre)
-    );
+    if (this.selectedGenre)
+      this.filteredMovies = this.data.movies.filter((m: any) =>
+        m.genres.some((g: string) => g == this.selectedGenre)
+      );
   }
 
   onSearchChange() {
@@ -57,11 +58,18 @@ export class MovieGridComponent implements OnInit, OnDestroy {
       this.populateMovie();
       return;
     }
-    //Here is the bug I forgot to remove this line
-    // this.populateMovie();
-    this.filteredMovies = this.filteredMovies.filter((m: any) =>
-      m.title.toLowerCase().includes(this.search.toLocaleLowerCase())
-    );
+    console.log(this.filteredMovies);
+    this.selectedGenre == '' ? this.applyFilter(false) : this.applyFilter(true);
+  }
+
+  private applyFilter(selectedGenre: boolean) {
+    let movieCollection = selectedGenre
+      ? this.filteredMovies
+      : this.data.movies;
+
+    this.filteredMovies = movieCollection.filter((m: any) => {
+      return m.title.toLowerCase().includes(this.search.toLowerCase());
+    });
   }
 
   navigateToMovieDetail(id: number) {
